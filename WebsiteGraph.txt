@@ -1,0 +1,6 @@
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph0.html | max_depth: 1 | max_links: 10 | crawl time: 1.6000185012817383
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph2.html | max_depth: 2 | max_links: 10 | crawl time: 12.905709743499756
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph4.html | max_depth: 3 | max_links: 10 | crawl time: 84.55941534042358
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph0.html | max_depth: 1 | max_links: 10 | crawl time: 3.058067798614502
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph1.html | max_depth: 2 | max_links: 10 | crawl time: 20.718218088150024
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph2.html | max_depth: 3 | max_links: 10 | crawl time: 123.30372500419617
