@@ -5,3 +5,8 @@ c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph6.html | max_depth: 2 | max
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph7.html | max_depth: 3 | max_links: 10 | crawl time: 66.65576791763306 | workers: 10
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph8.html | max_depth: 3 | max_links: 10 | crawl time: 62.48543572425842 | workers: 20
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph9.html | max_depth: 4 | max_links: 10 | crawl time: 264.98015880584717 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html | max_depth: 1 | max_links: 10 | crawl time: 3.8738150596618652 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html | max_depth: 0 | max_links: 10 | crawl time: 0.07203865051269531 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html | max_depth: 2 | max_links: 10 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html | max_depth: 0 | max_links: 10 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html | max_depth: 1 | max_links: 10 | workers: 10

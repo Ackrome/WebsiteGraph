@@ -3607,3 +3607,671 @@
 2025-03-23 16:40:02,258 - INFO - Starting visualization
 2025-03-23 16:40:22,888 - INFO - Сохранение графа в HTML-файл
 2025-03-23 16:40:23,063 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph9.html and opened in browser
+2025-03-23 20:48:29,088 - INFO - Starting program
+2025-03-23 20:48:29,090 - INFO - Starting crawl
+2025-03-23 20:48:29,107 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:48:29,500 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 20:48:29,500 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:48:29,501 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 20:48:29,502 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-23 20:48:29,504 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:48:29,508 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-23 20:48:29,510 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-23 20:48:29,512 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-23 20:48:29,512 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-23 20:48:32,965 - INFO - Crawl complete
+2025-03-23 20:48:32,966 - INFO - Starting visualization
+2025-03-23 20:48:43,421 - INFO - Сохранение графа в HTML-файл
+2025-03-23 20:48:43,575 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html and opened in browser
+2025-03-23 20:48:55,545 - INFO - Starting program
+2025-03-23 20:48:55,547 - INFO - Starting crawl
+2025-03-23 20:48:55,552 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:48:55,619 - INFO - Crawl complete
+2025-03-23 20:48:55,620 - INFO - Starting visualization
+2025-03-23 20:49:05,843 - INFO - Сохранение графа в HTML-файл
+2025-03-23 20:49:05,908 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html and opened in browser
+2025-03-23 20:51:47,198 - INFO - Starting crawl
+2025-03-23 20:51:47,201 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:51:47,265 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 20:51:47,265 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 20:51:47,266 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:51:47,267 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:51:49,218 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Observation_arc
+2025-03-23 20:51:49,218 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Osculating_orbit
+2025-03-23 20:51:49,219 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Comet_WISE_and_NEOWISE
+2025-03-23 20:51:49,219 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/List_of_minor_planet_discoverers
+2025-03-23 20:51:49,219 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Very_Large_Telescope
+2025-03-23 20:51:49,220 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Celestial_cartography
+2025-03-23 20:51:49,220 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/ESO
+2025-03-23 20:51:49,221 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Astrophotography
+2025-03-23 20:51:49,222 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_engineering
+2025-03-23 20:51:49,223 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_theory
+2025-03-23 20:51:49,310 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:51:49,339 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Programming_language_theory
+2025-03-23 20:51:49,379 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_architecture
+2025-03-23 20:51:49,773 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_complexity_theory
+2025-03-23 20:51:51,573 - INFO - Crawl complete
+2025-03-23 20:51:51,574 - INFO - Starting crawl
+2025-03-23 20:51:51,577 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:51:52,386 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/General_game_playing
+2025-03-23 20:51:52,386 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Automated_planning_and_scheduling
+2025-03-23 20:51:52,387 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Natural_language_processing
+2025-03-23 20:51:52,388 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+2025-03-23 20:51:52,391 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Intelligent_agent
+2025-03-23 20:51:52,393 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Robotics
+2025-03-23 20:51:52,395 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Artificial_general_intelligence
+2025-03-23 20:51:52,399 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_vision
+2025-03-23 20:51:52,403 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/AI_safety
+2025-03-23 20:52:02,791 - ERROR - Network error for https://en.wikipedia.org/wiki/Robotics: HTTPSConnectionPool(host='en.wikipedia.org', port=443): Read timed out. (read timeout=5)
+2025-03-23 20:52:02,793 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/General_video_game_playing
+2025-03-23 20:52:02,794 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_retrieval
+2025-03-23 20:52:02,794 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Linguistics
+2025-03-23 20:52:02,794 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Knowledge_representation
+2025-03-23 20:52:02,794 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_linguistics
+2025-03-23 20:52:02,794 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Speech_recognition
+2025-03-23 20:52:02,795 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Language_processing_in_the_brain
+2025-03-23 20:52:02,794 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:52:02,795 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language
+2025-03-23 20:52:02,795 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thesaurus
+2025-03-23 20:52:02,902 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Axiom_system
+2025-03-23 20:52:02,956 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Formal_system
+2025-03-23 20:52:03,181 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language_user_interface
+2025-03-23 20:52:03,354 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Logic
+2025-03-23 20:52:03,374 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information
+2025-03-23 20:52:03,444 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Semantic_network
+2025-03-23 20:52:03,506 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Vocabulary
+2025-03-23 20:52:03,770 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Intelligent_designer
+2025-03-23 20:52:03,827 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thermostat
+2025-03-23 20:52:03,929 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_perception
+2025-03-23 20:52:03,996 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Agentic_AI
+2025-03-23 20:52:04,054 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_system
+2025-03-23 20:52:04,237 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Embodied_agent
+2025-03-23 20:52:04,276 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_learning
+2025-03-23 20:52:04,344 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Generative_artificial_intelligence
+2025-03-23 20:52:04,433 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_superintelligence
+2025-03-23 20:52:05,532 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:52:05,532 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Information_architecture
+2025-03-23 20:52:05,532 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Information_behavior
+2025-03-23 20:52:05,533 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Information_management
+2025-03-23 20:52:05,533 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Information_access
+2025-03-23 20:52:05,533 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Information_seeking
+2025-03-23 20:52:05,533 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Knowledge_organization
+2025-03-23 20:52:05,533 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Outline_of_information_science
+2025-03-23 20:52:05,533 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Information_society
+2025-03-23 20:52:05,534 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Semantics
+2025-03-23 20:52:05,632 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Historical_linguistics
+2025-03-23 20:52:05,730 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Syntax
+2025-03-23 20:52:05,762 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Index_of_linguistics_articles
+2025-03-23 20:52:05,792 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Lexicography
+2025-03-23 20:52:05,849 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Pragmatics
+2025-03-23 20:52:05,878 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Outline_of_linguistics
+2025-03-23 20:52:06,021 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/History_of_linguistics
+2025-03-23 20:52:06,037 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Phonology
+2025-03-23 20:52:06,075 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Outline_of_linguistics: bad parameter or other API misuse
+2025-03-23 20:52:06,118 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Computer_engineering
+2025-03-23 20:52:06,118 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Methodology
+2025-03-23 20:52:06,182 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Phonology: bad parameter or other API misuse
+2025-03-23 20:52:06,305 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Translation
+2025-03-23 20:52:06,334 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Speech_synthesis
+2025-03-23 20:52:06,335 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Computer_engineering: bad parameter or other API misuse
+2025-03-23 20:52:06,340 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Speech_perception
+2025-03-23 20:52:06,504 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-23 20:52:06,512 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Computation
+2025-03-23 20:52:06,597 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Computer_architecture
+2025-03-23 20:52:06,697 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Outline_of_computer_science
+2025-03-23 20:52:06,822 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Programming_language_theory
+2025-03-23 20:52:07,054 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/History_of_computer_science
+2025-03-23 20:52:07,107 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Glossary_of_computer_science
+2025-03-23 20:52:07,149 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Computational_complexity_theory
+2025-03-23 20:52:07,474 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Grammar
+2025-03-23 20:52:07,489 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Cognition
+2025-03-23 20:52:07,534 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Electrophysiological
+2025-03-23 20:52:07,639 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Human_communication
+2025-03-23 20:52:07,678 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Outline_of_computer_science: bad parameter or other API misuse
+2025-03-23 20:52:07,682 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Psycholinguistics
+2025-03-23 20:52:07,684 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Cognition: bad parameter or other API misuse
+2025-03-23 20:52:07,690 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Word
+2025-03-23 20:52:07,695 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Human_brain
+2025-03-23 20:52:07,808 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Evolution_of_primates
+2025-03-23 20:52:07,944 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Language
+2025-03-23 20:52:08,045 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Language_change
+2025-03-23 20:52:08,123 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Universal_grammar
+2025-03-23 20:52:08,180 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Philosophy_of_language
+2025-03-23 20:52:08,444 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Human
+2025-03-23 20:52:08,611 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Neuropsychology
+2025-03-23 20:52:08,652 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Spoken_language
+2025-03-23 20:52:08,771 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Antonym
+2025-03-23 20:52:08,859 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Hypernymy_and_hyponymy
+2025-03-23 20:52:08,905 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Reference_work
+2025-03-23 20:52:08,967 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Thesaurus_Linguae_Latinae
+2025-03-23 20:52:09,150 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Usage_dictionary
+2025-03-23 20:52:09,553 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Synonym
+2025-03-23 20:52:09,846 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Hypernym
+2025-03-23 20:52:09,870 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Peter_Mark_Roget
+2025-03-23 20:52:09,899 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Hierarchy
+2025-03-23 20:52:09,940 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Axiomatic_system
+2025-03-23 20:52:09,985 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Model_theory
+2025-03-23 20:52:10,008 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Formal_proof
+2025-03-23 20:52:10,008 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Peter_Mark_Roget: bad parameter or other API misuse
+2025-03-23 20:52:10,012 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Mathematics
+2025-03-23 20:52:10,300 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Axiom
+2025-03-23 20:52:10,324 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Model_theory: bad parameter or other API misuse
+2025-03-23 20:52:10,457 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Primitive_notion
+2025-03-23 20:52:10,477 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Theorem
+2025-03-23 20:52:10,594 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Notation
+2025-03-23 20:52:10,629 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Rule_of_inference
+2025-03-23 20:52:10,718 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/David_Hilbert
+2025-03-23 20:52:10,727 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Abstract_structure
+2025-03-23 20:52:10,833 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Deductive_reasoning
+2025-03-23 20:52:10,878 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Axioms
+2025-03-23 20:52:11,056 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Question_answering
+2025-03-23 20:52:11,298 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Semantic_ambiguity
+2025-03-23 20:52:11,399 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/United_States
+2025-03-23 20:52:11,542 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Natural_language_understanding
+2025-03-23 20:52:11,580 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Keyword_search
+2025-03-23 20:52:11,683 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Semantic_Web
+2025-03-23 20:52:11,716 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Interface_design
+2025-03-23 20:52:11,744 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/User_interface
+2025-03-23 20:52:11,994 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Logical_truth
+2025-03-23 20:52:12,053 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Logical_reasoning
+2025-03-23 20:52:12,107 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Critical_thinking
+2025-03-23 20:52:12,144 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Premise
+2025-03-23 20:52:12,237 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Informal_logic
+2025-03-23 20:52:12,313 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Argumentation_theory
+2025-03-23 20:52:12,362 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Informal_fallacies
+2025-03-23 20:52:12,555 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Modus_ponens
+2025-03-23 20:52:12,590 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Semiotics
+2025-03-23 20:52:12,730 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Communication_theory
+2025-03-23 20:52:12,857 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Communication
+2025-03-23 20:52:12,953 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/History_of_communication
+2025-03-23 20:52:13,383 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Discourse_analysis
+2025-03-23 20:52:13,456 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Communication: bad parameter or other API misuse
+2025-03-23 20:52:13,507 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Outline_of_communication
+2025-03-23 20:52:13,721 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Sociology
+2025-03-23 20:52:13,758 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Network_controllability
+2025-03-23 20:52:13,794 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Percolation_theory
+2025-03-23 20:52:13,849 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Network_theory
+2025-03-23 20:52:14,034 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Complex_network
+2025-03-23 20:52:14,115 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Community_structure
+2025-03-23 20:52:14,245 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Semantic_neural_network
+2025-03-23 20:52:14,318 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Complex_contagion
+2025-03-23 20:52:14,319 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Sociology: bad parameter or other API misuse
+2025-03-23 20:52:14,324 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Network_science
+2025-03-23 20:52:14,346 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Complex_network: bad parameter or other API misuse
+2025-03-23 20:52:14,457 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Evolving_networks
+2025-03-23 20:52:14,490 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Phonemic_awareness
+2025-03-23 20:52:14,556 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Reading_readiness
+2025-03-23 20:52:14,632 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Science_of_reading
+2025-03-23 20:52:14,668 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Vocabulary_development
+2025-03-23 20:52:14,698 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Simple_view_of_reading
+2025-03-23 20:52:14,976 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Reading_comprehension
+2025-03-23 20:52:15,032 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Learning_to_read
+2025-03-23 20:52:15,081 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Reading
+2025-03-23 20:52:15,153 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Vocabulary_learning
+2025-03-23 20:52:15,340 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Timeline_of_intelligent_design
+2025-03-23 20:52:15,374 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Wedge_strategy
+2025-03-23 20:52:15,415 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Watchmaker_analogy
+2025-03-23 20:52:15,592 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Specified_complexity
+2025-03-23 20:52:15,673 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Intelligent_design
+2025-03-23 20:52:15,719 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Irreducible_complexity
+2025-03-23 20:52:15,789 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Wedge_strategy: bad parameter or other API misuse
+2025-03-23 20:52:15,790 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Theistic_science
+2025-03-23 20:52:15,790 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Timeline_of_intelligent_design: bad parameter or other API misuse
+2025-03-23 20:52:15,792 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Intelligent_design_movement
+2025-03-23 20:52:15,796 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Intelligent_design_in_politics
+2025-03-23 20:52:15,938 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Air_conditioning
+2025-03-23 20:52:16,312 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Temperature
+2025-03-23 20:52:16,322 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Gas_Mark
+2025-03-23 20:52:16,427 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Smithsonian
+2025-03-23 20:52:16,537 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Physical_system
+2025-03-23 20:52:16,693 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/HVAC
+2025-03-23 20:52:16,775 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Heating
+2025-03-23 20:52:16,802 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Honeywell
+2025-03-23 20:52:17,262 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Central_heating
+2025-03-23 20:52:17,273 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Physical_system: bad parameter or other API misuse
+2025-03-23 20:52:17,460 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Sense
+2025-03-23 20:52:17,490 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Software
+2025-03-23 20:52:17,566 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Data
+2025-03-23 20:52:17,733 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Perception
+2025-03-23 20:52:18,100 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Electronic_hardware
+2025-03-23 20:52:18,187 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Computational_science
+2025-03-23 20:52:18,285 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Software: bad parameter or other API misuse
+2025-03-23 20:52:18,309 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Sensory_nervous_system
+2025-03-23 20:52:18,313 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Computer
+2025-03-23 20:52:18,482 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Norbert_Wiener
+2025-03-23 20:52:18,534 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Robotic_process_automation
+2025-03-23 20:52:18,771 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Alan_Turing
+2025-03-23 20:52:18,835 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Albert_Bandura
+2025-03-23 20:52:19,008 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Cybersecurity
+2025-03-23 20:52:19,038 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Customer_support
+2025-03-23 20:52:19,248 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Business_intelligence
+2025-03-23 20:52:19,347 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Software_development
+2025-03-23 20:52:19,364 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Centrifugal_governor
+2025-03-23 20:52:19,775 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Control_loop
+2025-03-23 20:52:19,831 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Proportional_control
+2025-03-23 20:52:19,831 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Cybersecurity: bad parameter or other API misuse
+2025-03-23 20:52:19,957 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Feedback_controller
+2025-03-23 20:52:19,961 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Process_variable
+2025-03-23 20:52:20,150 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Industrial_control_system
+2025-03-23 20:52:20,152 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Sequential_logic
+2025-03-23 20:52:20,195 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Control_engineering
+2025-03-23 20:52:20,248 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Microsoft_Agent
+2025-03-23 20:52:20,363 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Ananova
+2025-03-23 20:52:20,492 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Human_being
+2025-03-23 20:52:20,532 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Mobile_robot
+2025-03-23 20:52:20,557 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Automated_online_assistant
+2025-03-23 20:52:20,629 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Customer_service
+2025-03-23 20:52:20,688 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Intelligent_user_interface
+2025-03-23 20:52:20,741 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Reinforcement_learning
+2025-03-23 20:52:20,774 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Statistical_learning_in_language_acquisition
+2025-03-23 20:52:20,819 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Data_mining
+2025-03-23 20:52:20,846 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Online_machine_learning
+2025-03-23 20:52:20,881 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Curriculum_learning
+2025-03-23 20:52:21,047 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Unsupervised_learning
+2025-03-23 20:52:21,206 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Neuromorphic_engineering
+2025-03-23 20:52:21,485 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Supervised_learning
+2025-03-23 20:52:21,491 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Batch_learning
+2025-03-23 20:52:21,704 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Intelligence
+2025-03-23 20:52:21,826 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Neural_machine_translation
+2025-03-23 20:52:21,826 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Neuromorphic_engineering: bad parameter or other API misuse
+2025-03-23 20:52:21,894 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Superintelligence
+2025-03-23 20:52:21,911 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/University_of_Oxford
+2025-03-23 20:52:21,915 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Nick_Bostrom
+2025-03-23 20:52:21,960 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Human_intelligence
+2025-03-23 20:52:22,022 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Intellectual_giftedness
+2025-03-23 20:52:22,152 - INFO - Fetching (depth 3): https://en.wikipedia.org/wiki/Technological_singularity
+2025-03-23 20:52:23,600 - INFO - Crawl complete
+2025-03-23 20:53:01,606 - INFO - Starting crawl
+2025-03-23 20:53:01,615 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:53:01,684 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 20:53:01,684 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 20:53:01,684 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:53:01,685 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:53:02,392 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Observation_arc
+2025-03-23 20:53:02,392 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Osculating_orbit
+2025-03-23 20:53:02,392 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Comet_WISE_and_NEOWISE
+2025-03-23 20:53:02,392 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/List_of_minor_planet_discoverers
+2025-03-23 20:53:02,394 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Very_Large_Telescope
+2025-03-23 20:53:02,396 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Celestial_cartography
+2025-03-23 20:53:02,396 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/ESO
+2025-03-23 20:53:02,397 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Astrophotography
+2025-03-23 20:53:02,398 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_engineering
+2025-03-23 20:53:02,400 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_theory
+2025-03-23 20:53:02,498 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:53:02,527 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Programming_language_theory
+2025-03-23 20:53:02,629 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_architecture
+2025-03-23 20:53:03,117 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_complexity_theory
+2025-03-23 20:53:04,788 - INFO - Crawl complete
+2025-03-23 20:53:04,789 - INFO - Starting crawl
+2025-03-23 20:53:04,793 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:53:05,753 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/General_game_playing
+2025-03-23 20:53:05,753 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Automated_planning_and_scheduling
+2025-03-23 20:53:05,754 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Natural_language_processing
+2025-03-23 20:53:05,755 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+2025-03-23 20:53:05,756 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Intelligent_agent
+2025-03-23 20:53:05,759 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Robotics
+2025-03-23 20:53:05,761 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Artificial_general_intelligence
+2025-03-23 20:53:05,764 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_vision
+2025-03-23 20:53:05,766 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/AI_safety
+2025-03-23 20:53:06,877 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/General_video_game_playing
+2025-03-23 20:53:06,877 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_retrieval
+2025-03-23 20:53:06,877 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Linguistics
+2025-03-23 20:53:06,878 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Speech_recognition
+2025-03-23 20:53:06,878 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_linguistics
+2025-03-23 20:53:06,878 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Knowledge_representation
+2025-03-23 20:53:06,880 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:53:06,881 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Language_processing_in_the_brain
+2025-03-23 20:53:06,881 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language
+2025-03-23 20:53:06,881 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thesaurus
+2025-03-23 20:53:06,997 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Axiom_system
+2025-03-23 20:53:07,107 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Formal_system
+2025-03-23 20:53:07,180 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language_user_interface
+2025-03-23 20:53:07,248 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Logic
+2025-03-23 20:53:07,536 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information
+2025-03-23 20:53:07,549 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Semantic_network
+2025-03-23 20:53:07,561 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Vocabulary
+2025-03-23 20:53:07,626 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Intelligent_designer
+2025-03-23 20:53:07,801 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thermostat
+2025-03-23 20:53:07,970 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_perception
+2025-03-23 20:53:07,998 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Agentic_AI
+2025-03-23 20:53:08,053 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_system
+2025-03-23 20:53:08,163 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Information: bad parameter or other API misuse
+2025-03-23 20:53:08,194 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Machine_perception: bad parameter or other API misuse
+2025-03-23 20:53:08,225 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Embodied_agent
+2025-03-23 20:53:08,226 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_learning
+2025-03-23 20:53:08,227 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mechanical_engineering
+2025-03-23 20:53:08,546 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Robot
+2025-03-23 20:53:08,588 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Product_placement
+2025-03-23 20:53:08,665 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_engineering
+2025-03-23 20:53:08,813 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Software_engineering
+2025-03-23 20:53:08,862 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-23 20:53:08,885 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mars_rover
+2025-03-23 20:53:08,927 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Electrical_engineering
+2025-03-23 20:53:08,989 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Generative_artificial_intelligence
+2025-03-23 20:53:09,127 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_superintelligence
+2025-03-23 20:53:10,662 - INFO - Crawl complete
+2025-03-23 20:53:24,080 - INFO - Starting crawl
+2025-03-23 20:53:24,083 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:53:24,134 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 20:53:24,134 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 20:53:24,135 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:53:24,135 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:53:24,807 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Observation_arc
+2025-03-23 20:53:24,807 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Osculating_orbit
+2025-03-23 20:53:24,807 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Comet_WISE_and_NEOWISE
+2025-03-23 20:53:24,807 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/List_of_minor_planet_discoverers
+2025-03-23 20:53:24,808 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Very_Large_Telescope
+2025-03-23 20:53:24,808 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Celestial_cartography
+2025-03-23 20:53:24,818 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/ESO
+2025-03-23 20:53:24,822 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Astrophotography
+2025-03-23 20:53:24,825 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_engineering
+2025-03-23 20:53:24,829 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_theory
+2025-03-23 20:53:24,918 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:53:25,029 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Programming_language_theory
+2025-03-23 20:53:25,110 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_architecture
+2025-03-23 20:53:25,325 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_complexity_theory
+2025-03-23 20:53:27,209 - INFO - Crawl complete
+2025-03-23 20:53:27,211 - INFO - Starting crawl
+2025-03-23 20:53:27,214 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:53:28,061 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/General_game_playing
+2025-03-23 20:53:28,061 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Automated_planning_and_scheduling
+2025-03-23 20:53:28,062 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Natural_language_processing
+2025-03-23 20:53:28,063 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+2025-03-23 20:53:28,065 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Intelligent_agent
+2025-03-23 20:53:28,067 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Robotics
+2025-03-23 20:53:28,070 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Artificial_general_intelligence
+2025-03-23 20:53:28,087 - ERROR - Unable to deserialize response: a bytes-like object is required, not 'NoneType'
+2025-03-23 20:53:28,102 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_vision
+2025-03-23 20:53:28,134 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/AI_safety
+2025-03-23 20:53:29,253 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/General_video_game_playing
+2025-03-23 20:53:29,254 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_retrieval
+2025-03-23 20:53:29,254 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Linguistics
+2025-03-23 20:53:29,254 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Knowledge_representation
+2025-03-23 20:53:29,254 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_linguistics
+2025-03-23 20:53:29,255 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Speech_recognition
+2025-03-23 20:53:29,255 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:53:29,255 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Language_processing_in_the_brain
+2025-03-23 20:53:29,255 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language
+2025-03-23 20:53:29,256 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thesaurus
+2025-03-23 20:53:29,379 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Axiom_system
+2025-03-23 20:53:29,486 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Formal_system
+2025-03-23 20:53:29,611 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language_user_interface
+2025-03-23 20:53:29,702 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Logic
+2025-03-23 20:53:29,765 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information
+2025-03-23 20:53:29,807 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Semantic_network
+2025-03-23 20:53:29,947 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Vocabulary
+2025-03-23 20:53:30,216 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Intelligent_designer
+2025-03-23 20:53:30,250 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thermostat
+2025-03-23 20:53:30,488 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_perception
+2025-03-23 20:53:30,572 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Agentic_AI
+2025-03-23 20:53:30,827 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_system
+2025-03-23 20:53:30,898 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Embodied_agent
+2025-03-23 20:53:30,909 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_learning
+2025-03-23 20:53:30,982 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mechanical_engineering
+2025-03-23 20:53:31,045 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Robot
+2025-03-23 20:53:31,363 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Product_placement
+2025-03-23 20:53:31,400 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_engineering
+2025-03-23 20:53:31,431 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Software_engineering
+2025-03-23 20:53:31,475 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-23 20:53:31,511 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mars_rover
+2025-03-23 20:53:31,582 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Control_engineering: bad parameter or other API misuse
+2025-03-23 20:53:31,736 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Electrical_engineering
+2025-03-23 20:53:31,810 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Generative_artificial_intelligence
+2025-03-23 20:53:31,827 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_superintelligence
+2025-03-23 20:53:33,347 - INFO - Crawl complete
+2025-03-23 20:53:46,030 - INFO - Starting crawl
+2025-03-23 20:53:46,034 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:53:46,151 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 20:53:46,151 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 20:53:46,152 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:53:46,153 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:53:46,826 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Observation_arc
+2025-03-23 20:53:46,826 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Osculating_orbit
+2025-03-23 20:53:46,827 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Comet_WISE_and_NEOWISE
+2025-03-23 20:53:46,827 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/List_of_minor_planet_discoverers
+2025-03-23 20:53:46,827 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Very_Large_Telescope
+2025-03-23 20:53:46,828 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Celestial_cartography
+2025-03-23 20:53:46,830 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/ESO
+2025-03-23 20:53:46,832 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Osculating_orbit: bad parameter or other API misuse
+2025-03-23 20:53:46,833 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Astrophotography
+2025-03-23 20:53:46,835 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_engineering
+2025-03-23 20:53:46,836 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_theory
+2025-03-23 20:53:46,935 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:53:47,078 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Programming_language_theory
+2025-03-23 20:53:47,240 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_architecture
+2025-03-23 20:53:47,792 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_complexity_theory
+2025-03-23 20:53:49,318 - INFO - Crawl complete
+2025-03-23 20:53:49,319 - INFO - Starting crawl
+2025-03-23 20:53:49,322 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:53:50,149 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/General_game_playing
+2025-03-23 20:53:50,149 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Automated_planning_and_scheduling
+2025-03-23 20:53:50,150 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Natural_language_processing
+2025-03-23 20:53:50,154 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+2025-03-23 20:53:50,173 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Intelligent_agent
+2025-03-23 20:53:50,268 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Robotics
+2025-03-23 20:53:50,281 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Artificial_general_intelligence
+2025-03-23 20:53:50,293 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_vision
+2025-03-23 20:53:50,294 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/AI_safety
+2025-03-23 20:53:50,762 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Computer_vision: bad parameter or other API misuse
+2025-03-23 20:53:51,221 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/General_video_game_playing
+2025-03-23 20:53:51,221 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_retrieval
+2025-03-23 20:53:51,221 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Linguistics
+2025-03-23 20:53:51,222 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Knowledge_representation
+2025-03-23 20:53:51,222 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_linguistics
+2025-03-23 20:53:51,222 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Speech_recognition
+2025-03-23 20:53:51,223 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:53:51,225 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Language_processing_in_the_brain
+2025-03-23 20:53:51,226 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language
+2025-03-23 20:53:51,226 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thesaurus
+2025-03-23 20:53:51,343 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Axiom_system
+2025-03-23 20:53:51,458 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Formal_system
+2025-03-23 20:53:51,591 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language_user_interface
+2025-03-23 20:53:51,648 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Logic
+2025-03-23 20:53:51,678 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information
+2025-03-23 20:53:51,959 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Semantic_network
+2025-03-23 20:53:52,093 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Vocabulary
+2025-03-23 20:53:52,129 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Intelligent_designer
+2025-03-23 20:53:52,377 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thermostat
+2025-03-23 20:53:52,403 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_perception
+2025-03-23 20:53:52,462 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Agentic_AI
+2025-03-23 20:53:52,595 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_system
+2025-03-23 20:53:52,644 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Embodied_agent
+2025-03-23 20:53:52,870 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_learning
+2025-03-23 20:53:52,976 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mechanical_engineering
+2025-03-23 20:53:53,089 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Robot
+2025-03-23 20:53:53,092 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Thermostat: bad parameter or other API misuse
+2025-03-23 20:53:53,253 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Product_placement
+2025-03-23 20:53:53,321 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_engineering
+2025-03-23 20:53:53,332 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Software_engineering
+2025-03-23 20:53:53,370 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-23 20:53:53,398 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mars_rover
+2025-03-23 20:53:53,443 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Electrical_engineering
+2025-03-23 20:53:53,473 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Generative_artificial_intelligence
+2025-03-23 20:53:53,685 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_superintelligence
+2025-03-23 20:53:55,190 - INFO - Crawl complete
+2025-03-23 20:53:55,192 - INFO - Starting visualization
+2025-03-23 20:56:03,562 - INFO - Starting crawl
+2025-03-23 20:56:03,568 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:56:03,716 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 20:56:03,716 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 20:56:03,717 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:56:03,717 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:56:06,276 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Observation_arc
+2025-03-23 20:56:06,276 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Osculating_orbit
+2025-03-23 20:56:06,276 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Comet_WISE_and_NEOWISE
+2025-03-23 20:56:06,276 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/List_of_minor_planet_discoverers
+2025-03-23 20:56:06,277 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Very_Large_Telescope
+2025-03-23 20:56:06,277 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Celestial_cartography
+2025-03-23 20:56:06,278 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/ESO
+2025-03-23 20:56:06,279 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Astrophotography
+2025-03-23 20:56:06,281 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_engineering
+2025-03-23 20:56:06,373 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_theory
+2025-03-23 20:56:06,397 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:56:06,430 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Programming_language_theory
+2025-03-23 20:56:06,454 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_architecture
+2025-03-23 20:56:07,067 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_complexity_theory
+2025-03-23 20:56:09,928 - INFO - Crawl complete
+2025-03-23 20:56:09,928 - INFO - Starting crawl
+2025-03-23 20:56:09,938 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:56:10,902 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/General_game_playing
+2025-03-23 20:56:10,903 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Automated_planning_and_scheduling
+2025-03-23 20:56:10,903 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Natural_language_processing
+2025-03-23 20:56:10,905 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+2025-03-23 20:56:10,905 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Intelligent_agent
+2025-03-23 20:56:10,908 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Robotics
+2025-03-23 20:56:10,924 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Artificial_general_intelligence
+2025-03-23 20:56:11,001 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_vision
+2025-03-23 20:56:11,031 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/AI_safety
+2025-03-23 20:56:12,000 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/General_video_game_playing
+2025-03-23 20:56:12,001 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_retrieval
+2025-03-23 20:56:12,001 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Linguistics
+2025-03-23 20:56:12,001 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Knowledge_representation
+2025-03-23 20:56:12,003 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_linguistics
+2025-03-23 20:56:12,003 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Speech_recognition
+2025-03-23 20:56:12,003 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:56:12,003 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Language_processing_in_the_brain
+2025-03-23 20:56:12,004 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language
+2025-03-23 20:56:12,004 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thesaurus
+2025-03-23 20:56:12,144 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Axiom_system
+2025-03-23 20:56:12,252 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Formal_system
+2025-03-23 20:56:12,381 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language_user_interface
+2025-03-23 20:56:12,535 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Logic
+2025-03-23 20:56:12,572 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information
+2025-03-23 20:56:12,638 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Semantic_network
+2025-03-23 20:56:12,938 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Vocabulary
+2025-03-23 20:56:13,103 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Intelligent_designer
+2025-03-23 20:56:13,173 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thermostat
+2025-03-23 20:56:13,213 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_perception
+2025-03-23 20:56:13,487 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Agentic_AI
+2025-03-23 20:56:13,648 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_system
+2025-03-23 20:56:13,880 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Embodied_agent
+2025-03-23 20:56:13,984 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_learning
+2025-03-23 20:56:13,987 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mechanical_engineering
+2025-03-23 20:56:14,064 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Robot
+2025-03-23 20:56:14,098 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Product_placement
+2025-03-23 20:56:14,182 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_engineering
+2025-03-23 20:56:14,207 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Software_engineering
+2025-03-23 20:56:14,255 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-23 20:56:14,393 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mars_rover
+2025-03-23 20:56:14,596 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Electrical_engineering
+2025-03-23 20:56:14,977 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Generative_artificial_intelligence
+2025-03-23 20:56:15,071 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_superintelligence
+2025-03-23 20:56:19,243 - INFO - Crawl complete
+2025-03-23 20:57:48,497 - INFO - Starting crawl
+2025-03-23 20:57:48,502 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:57:48,554 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 20:57:48,554 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 20:57:48,555 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:57:48,556 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:57:54,635 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Observation_arc
+2025-03-23 20:57:54,636 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Osculating_orbit
+2025-03-23 20:57:54,636 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Comet_WISE_and_NEOWISE
+2025-03-23 20:57:54,637 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/List_of_minor_planet_discoverers
+2025-03-23 20:57:54,637 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Very_Large_Telescope
+2025-03-23 20:57:54,637 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Celestial_cartography
+2025-03-23 20:57:54,638 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/ESO
+2025-03-23 20:57:54,641 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Astrophotography
+2025-03-23 20:57:54,644 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_engineering
+2025-03-23 20:57:54,644 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_theory
+2025-03-23 20:57:54,672 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:57:54,712 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Programming_language_theory
+2025-03-23 20:57:54,733 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_architecture
+2025-03-23 20:57:55,107 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_complexity_theory
+2025-03-23 20:57:58,788 - INFO - Crawl complete
+2025-03-23 20:57:58,789 - INFO - Starting crawl
+2025-03-23 20:57:58,792 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:58:03,924 - ERROR - Network error for https://en.wikipedia.org/wiki/Artificial_intelligence: HTTPSConnectionPool(host='en.wikipedia.org', port=443): Read timed out. (read timeout=5)
+2025-03-23 20:58:03,925 - INFO - Crawl complete
+2025-03-23 20:58:17,601 - INFO - Starting visualization
+2025-03-23 20:58:27,841 - INFO - Сохранение графа в HTML-файл
+2025-03-23 20:59:20,080 - INFO - Starting crawl
+2025-03-23 20:59:20,084 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 20:59:20,233 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 20:59:20,233 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 20:59:20,234 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 20:59:20,236 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:59:20,571 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Observation_arc
+2025-03-23 20:59:20,571 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Osculating_orbit
+2025-03-23 20:59:20,571 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Comet_WISE_and_NEOWISE
+2025-03-23 20:59:20,571 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/List_of_minor_planet_discoverers
+2025-03-23 20:59:20,571 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Very_Large_Telescope
+2025-03-23 20:59:20,572 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Celestial_cartography
+2025-03-23 20:59:20,573 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/ESO
+2025-03-23 20:59:20,574 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Astrophotography
+2025-03-23 20:59:20,576 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_engineering
+2025-03-23 20:59:20,576 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_theory
+2025-03-23 20:59:22,194 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:59:22,411 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Programming_language_theory
+2025-03-23 20:59:22,463 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_architecture
+2025-03-23 20:59:22,604 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_complexity_theory
+2025-03-23 20:59:22,672 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Computer_architecture: bad parameter or other API misuse
+2025-03-23 20:59:24,392 - INFO - Crawl complete
+2025-03-23 20:59:24,392 - INFO - Starting crawl
+2025-03-23 20:59:24,396 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 20:59:29,877 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/General_game_playing
+2025-03-23 20:59:29,877 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Automated_planning_and_scheduling
+2025-03-23 20:59:29,878 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Natural_language_processing
+2025-03-23 20:59:29,880 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+2025-03-23 20:59:29,883 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Intelligent_agent
+2025-03-23 20:59:29,885 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Robotics
+2025-03-23 20:59:29,886 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Artificial_general_intelligence
+2025-03-23 20:59:29,946 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_vision
+2025-03-23 20:59:29,946 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/AI_safety
+2025-03-23 20:59:31,980 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/General_video_game_playing
+2025-03-23 20:59:31,980 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information_retrieval
+2025-03-23 20:59:31,980 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Linguistics
+2025-03-23 20:59:31,981 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Knowledge_representation
+2025-03-23 20:59:31,981 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computational_linguistics
+2025-03-23 20:59:31,982 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Speech_recognition
+2025-03-23 20:59:31,982 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 20:59:31,982 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Language_processing_in_the_brain
+2025-03-23 20:59:31,983 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language
+2025-03-23 20:59:31,985 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thesaurus
+2025-03-23 20:59:32,113 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Axiom_system
+2025-03-23 20:59:32,189 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Formal_system
+2025-03-23 20:59:32,411 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Natural_language_user_interface
+2025-03-23 20:59:32,466 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Logic
+2025-03-23 20:59:32,542 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Information
+2025-03-23 20:59:32,583 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Semantic_network
+2025-03-23 20:59:32,919 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Vocabulary
+2025-03-23 20:59:32,983 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Intelligent_designer
+2025-03-23 20:59:33,004 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thermostat
+2025-03-23 20:59:33,077 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_perception
+2025-03-23 20:59:33,280 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Agentic_AI
+2025-03-23 20:59:33,316 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_system
+2025-03-23 20:59:33,381 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Embodied_agent
+2025-03-23 20:59:33,407 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Machine_learning
+2025-03-23 20:59:33,489 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mechanical_engineering
+2025-03-23 20:59:33,523 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Robot
+2025-03-23 20:59:33,571 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Product_placement
+2025-03-23 20:59:33,837 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Control_engineering
+2025-03-23 20:59:33,982 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Software_engineering
+2025-03-23 20:59:34,243 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-23 20:59:34,476 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mars_rover
+2025-03-23 20:59:34,701 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Electrical_engineering
+2025-03-23 20:59:34,719 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Generative_artificial_intelligence
+2025-03-23 20:59:34,732 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Artificial_superintelligence
+2025-03-23 20:59:38,776 - INFO - Crawl complete
+2025-03-23 20:59:38,778 - INFO - Starting visualization
+2025-03-23 20:59:49,041 - INFO - Сохранение графа в HTML-файл
+2025-03-23 20:59:49,145 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html and opened in browser
+2025-03-23 21:00:20,013 - INFO - Starting crawl
+2025-03-23 21:00:20,017 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 21:00:20,065 - INFO - Crawl complete
+2025-03-23 21:00:20,067 - INFO - Starting crawl
+2025-03-23 21:00:20,069 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 21:00:20,547 - INFO - Crawl complete
+2025-03-23 21:00:20,548 - INFO - Starting visualization
+2025-03-23 21:00:30,782 - INFO - Сохранение графа в HTML-файл
+2025-03-23 21:00:30,851 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html and opened in browser
+2025-03-23 21:00:51,796 - INFO - Starting crawl
+2025-03-23 21:00:51,800 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-23 21:00:51,859 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-23 21:00:51,860 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-23 21:00:51,861 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-23 21:00:51,863 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-23 21:00:51,865 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-23 21:00:51,867 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-23 21:00:51,897 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-23 21:00:51,907 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-23 21:00:51,907 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
