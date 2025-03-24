@@ -4275,3 +4275,21 @@
 2025-03-23 21:00:51,897 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
 2025-03-23 21:00:51,907 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
 2025-03-23 21:00:51,907 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-23 21:00:56,988 - INFO - Crawl complete
+2025-03-23 21:00:56,988 - INFO - Starting crawl
+2025-03-23 21:00:56,992 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Artificial_intelligence
+2025-03-23 21:00:57,476 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/General_game_playing
+2025-03-23 21:00:57,476 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Automated_planning_and_scheduling
+2025-03-23 21:00:57,480 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Natural_language_processing
+2025-03-23 21:00:57,482 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+2025-03-23 21:00:57,483 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Intelligent_agent
+2025-03-23 21:00:57,485 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Robotics
+2025-03-23 21:00:57,488 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Artificial_general_intelligence
+2025-03-23 21:00:57,490 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_vision
+2025-03-23 21:00:57,493 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/AI_safety
+2025-03-23 21:00:57,517 - ERROR - Unable to deserialize response: a bytes-like object is required, not 'NoneType'
+2025-03-23 21:01:02,621 - ERROR - Network error for https://en.wikipedia.org/wiki/Natural_language_processing: HTTPSConnectionPool(host='en.wikipedia.org', port=443): Read timed out. (read timeout=5)
+2025-03-23 21:01:02,624 - INFO - Crawl complete
+2025-03-23 21:01:02,625 - INFO - Starting visualization
+2025-03-23 21:01:12,887 - INFO - Сохранение графа в HTML-файл
+2025-03-23 21:01:12,969 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph10.html and opened in browser
