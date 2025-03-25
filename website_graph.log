@@ -13280,3 +13280,32 @@
 2025-03-25 10:58:55,031 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
 2025-03-25 10:58:55,124 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
 2025-03-25 10:58:56,730 - INFO - Crawl complete
+2025-03-25 11:00:45,961 - INFO - Starting program
+2025-03-25 11:00:45,973 - INFO - Starting crawl
+2025-03-25 11:00:45,977 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 11:00:46,065 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 11:00:46,065 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-25 11:00:46,068 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-25 11:00:46,072 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 11:00:46,076 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-25 11:00:46,091 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 11:00:46,110 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 11:00:46,153 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-25 11:00:46,231 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-25 11:00:47,901 - INFO - Crawl complete
+2025-03-25 11:00:47,904 - INFO - Starting visualization
+2025-03-25 11:00:58,132 - INFO - Сохранение графа в HTML-файл
+2025-03-25 11:00:58,337 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph11.html and opened in browser
+2025-03-25 11:01:09,920 - INFO - Starting program
+2025-03-25 11:01:09,931 - INFO - Starting crawl
+2025-03-25 11:01:09,938 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 11:01:10,020 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 11:01:10,021 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-25 11:01:10,027 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-25 11:01:10,070 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 11:01:10,102 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-25 11:01:10,508 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 11:01:10,586 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 11:01:10,647 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-25 11:01:10,874 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-25 11:01:11,881 - INFO - Crawl complete
