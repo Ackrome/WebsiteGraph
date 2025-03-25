@@ -15,3 +15,5 @@ c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph12.html | max_depth: 0 | ma
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\wtf.html | max_depth: 0 | max_links: 5 | crawl time: 0.05384635925292969 | workers: 10
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\4d.10l.20w.html | max_depth: 4 | max_links: 10 | crawl time: 295.0784921646118 | workers: 20
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\4d.10l.10w.html | max_depth: 4 | max_links: 10 | crawl time: 322.77800393104553 | workers: 20
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph0.html | max_depth: 1 | max_links: 10 | crawl time: 1.3117518424987793 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph11.html | max_depth: 1 | max_links: 10 | crawl time: 1.9265947341918945 | workers: 10

@@ -13166,3 +13166,117 @@
 2025-03-24 22:01:00,682 - INFO - Crawl complete
 2025-03-24 22:01:00,889 - INFO - Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
 2025-03-24 22:01:00,890 - INFO - NumExpr defaulting to 8 threads.
+2025-03-25 10:47:22,569 - INFO - Starting program
+2025-03-25 10:47:22,609 - INFO - Starting crawl
+2025-03-25 10:47:22,624 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:47:22,931 - INFO - Crawl complete
+2025-03-25 10:47:59,676 - INFO - Starting program
+2025-03-25 10:47:59,687 - INFO - Starting crawl
+2025-03-25 10:47:59,692 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:47:59,751 - INFO - Crawl complete
+2025-03-25 10:48:03,501 - INFO - Starting program
+2025-03-25 10:48:03,514 - INFO - Starting crawl
+2025-03-25 10:48:03,517 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:48:03,693 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:48:03,693 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:48:03,694 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:48:03,701 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:48:04,327 - INFO - Crawl complete
+2025-03-25 10:48:08,395 - INFO - Starting program
+2025-03-25 10:48:08,406 - INFO - Starting crawl
+2025-03-25 10:48:08,414 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:48:08,476 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:48:08,477 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:48:08,482 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:48:08,528 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:48:08,971 - INFO - Crawl complete
+2025-03-25 10:48:10,770 - INFO - Starting program
+2025-03-25 10:48:10,781 - INFO - Starting crawl
+2025-03-25 10:48:10,802 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:48:10,872 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:48:10,873 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:48:10,876 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:48:10,890 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:48:11,493 - INFO - Crawl complete
+2025-03-25 10:48:17,211 - INFO - Starting program
+2025-03-25 10:48:17,222 - INFO - Starting crawl
+2025-03-25 10:48:17,228 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:48:17,460 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:48:17,460 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-25 10:48:17,461 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-25 10:48:17,462 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:48:17,465 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-25 10:48:17,499 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:48:17,547 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:48:17,571 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-25 10:48:17,572 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-25 10:48:19,701 - INFO - Crawl complete
+2025-03-25 10:56:10,447 - INFO - Starting program
+2025-03-25 10:56:10,457 - INFO - Starting crawl
+2025-03-25 10:56:10,463 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:56:10,526 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:56:10,526 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-25 10:56:10,527 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-25 10:56:10,531 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:56:10,575 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-25 10:56:10,608 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:56:10,624 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:56:10,733 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-25 10:56:10,780 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-25 10:56:11,724 - INFO - Crawl complete
+2025-03-25 10:57:36,128 - INFO - Starting program
+2025-03-25 10:57:36,137 - INFO - Starting crawl
+2025-03-25 10:57:36,144 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:57:36,211 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:57:36,211 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-25 10:57:36,215 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-25 10:57:36,218 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:57:36,278 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-25 10:57:36,331 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:57:36,333 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:57:36,333 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-25 10:57:36,334 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-25 10:57:38,416 - INFO - Crawl complete
+2025-03-25 10:57:38,420 - INFO - Starting visualization
+2025-03-25 10:57:49,623 - INFO - Starting program
+2025-03-25 10:57:49,636 - INFO - Starting crawl
+2025-03-25 10:57:49,643 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:57:49,725 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:57:49,726 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-25 10:57:49,727 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-25 10:57:49,729 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:57:49,753 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-25 10:57:49,816 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:57:49,819 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:57:49,847 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-25 10:57:49,857 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-25 10:57:50,948 - INFO - Crawl complete
+2025-03-25 10:57:50,949 - INFO - Starting visualization
+2025-03-25 10:58:01,572 - INFO - Сохранение графа в HTML-файл
+2025-03-25 10:58:01,853 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph0.html and opened in browser
+2025-03-25 10:58:49,803 - INFO - Starting program
+2025-03-25 10:58:49,818 - INFO - Starting crawl
+2025-03-25 10:58:49,824 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:58:50,011 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:58:50,037 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-25 10:58:50,037 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-25 10:58:50,145 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:58:50,176 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-25 10:58:50,206 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:58:50,206 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:58:50,214 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-25 10:58:50,216 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-25 10:58:52,613 - INFO - Crawl complete
+2025-03-25 10:58:54,753 - INFO - Starting program
+2025-03-25 10:58:54,777 - INFO - Starting crawl
+2025-03-25 10:58:54,787 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Data_science
+2025-03-25 10:58:54,927 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Information_science
+2025-03-25 10:58:54,928 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_method
+2025-03-25 10:58:54,929 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interdisciplinary
+2025-03-25 10:58:54,930 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Comet_NEOWISE
+2025-03-25 10:58:54,935 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Scientific_computing
+2025-03-25 10:58:54,938 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Computer_science
+2025-03-25 10:58:54,967 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Astronomical_survey
+2025-03-25 10:58:55,031 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-25 10:58:55,124 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
+2025-03-25 10:58:56,730 - INFO - Crawl complete
