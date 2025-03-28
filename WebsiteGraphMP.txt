@@ -17,3 +17,16 @@ c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\4d.10l.20w.html | max_depth: 4 |
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\4d.10l.10w.html | max_depth: 4 | max_links: 10 | crawl time: 322.77800393104553 | workers: 20
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph0.html | max_depth: 1 | max_links: 10 | crawl time: 1.3117518424987793 | workers: 10
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph11.html | max_depth: 1 | max_links: 10 | crawl time: 1.9265947341918945 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph3d.html.html | max_depth: 0 | max_links: 10 | crawl time: 0.06451225280761719 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph3d.html | max_depth: 0 | max_links: 10 | crawl time: 0.061762332916259766 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph3d.html | max_depth: 1 | max_links: 10 | crawl time: 1.4299404621124268 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph3d0.html | max_depth: 1 | max_links: 10 | crawl time: 1.115724802017212 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph12.html | max_depth: 3 | max_links: 10 | crawl time: 65.84878611564636 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Ryan_Gosling.html | max_depth: 3 | max_links: 10 | crawl time: 74.29652667045593 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | max_links: 10 | crawl time: 2.0366389751434326 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | max_links: 10 | crawl time: 3.530531883239746 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | max_links: 10 | crawl time: 0.7443211078643799 | workers: 20
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | max_links: 30 | crawl time: 5.960349798202515 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | max_links: 30 | crawl time: 4.22903299331665 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph13.html | max_depth: 1 | max_links: 10 | crawl time: 1.2987685203552246 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | max_links: 30 | crawl time: 4.401360988616943 | workers: 10
