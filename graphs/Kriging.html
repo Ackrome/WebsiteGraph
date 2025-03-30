@@ -1,0 +1,558 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/css/tom-select.min.css" integrity="sha512-43fHB3GLgZfz8QXl1RPQ8O66oIgv3po9cJ5erMt1c4QISq9dYb195T3vr5ImnJPXuVroKcGBPXBFKETW8jrPNQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/js/tom-select.complete.js" integrity="sha512-jeF9CfnvzDiw9G9xiksVjxR2lib44Gnovvkv+3CgCG6NXCD4gqlA5nDAVW5WjpA+i+/zKsUWV5xNEbW1X/HH0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #000000;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+              <div id="filter-menu" class="card-header">
+                <div class="row no-gutters">
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'item')"
+                            id="select-item"
+                        >
+                        <option value="">Select a network item</option>
+                        <option value="edge">edge</option>
+                        <option value="node">node</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'property')"
+                            id="select-property"
+                        >
+                        <option value="">Select a property...</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="select-value"
+                        >
+                        <option value="">Select value(s)...</option>
+                    </select>
+                  </div>
+                  <div class="col-1 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="highlightFilter(filter);">Filter</button>
+                  </div>
+                  <div class="col-2 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="clearFilter(true)">Reset Selection</button>
+                  </div>
+                </div>
+              </div>
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+            // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+             /// Add in this js function here after the global variables declaration
+              function htmlTitle(html) {
+            const container = document.createElement("div");
+            container.innerHTML = html;
+            return container;
+          };
+
+              
+
+              
+                  // explicitly using onItemAdd and this function as we need to save multiple values
+                  let updateValueFilter = function() {
+                      return function () {
+                      filter['value'].push(arguments[0])
+                      }
+                  }
+
+                  let valueControl = new TomSelect("#select-value",{
+                      maxItems: null,
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: updateValueFilter()
+                  });
+
+                  let addValues = function() {
+                      return function () {
+                          // clear the current value options and add the selected attribute values
+                          // tom-select handles duplicates
+                          let selectedProperty = arguments[0];
+                          valueControl.clear();
+                          valueControl.clearOptions();
+                          filter['value'] = []
+                          if (filter['item'] === 'node') {
+                              for (let each in allNodes) {
+                                  valueControl.addOption({
+                                      id:allNodes[each][selectedProperty],
+                                      title:allNodes[each][selectedProperty]
+                                  })
+                              }
+                          }
+                          else if (filter['item'] === 'edge') {
+                              for (let each in allEdges) {
+                                  valueControl.addOption({
+                                      id:allEdges[each][selectedProperty],
+                                      title:allEdges[each][selectedProperty]
+                                  })
+                              }
+                          }
+                      }
+                  };
+
+                  let propControl = new TomSelect("#select-property",{
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addValues()
+                  });
+
+                  let addProperties = function() {
+                      return function () {
+                          // loops through the selected network item and adds the attributes to dropdown
+                          // tom-select handles duplicates
+                          clearFilter(false)
+                          if (arguments[0] === 'edge') {
+                              for (let each in allEdges) {
+                                  if (allEdges.hasOwnProperty(each)) {
+                                      for (let eachProp in allEdges[each]) {
+                                          if (allEdges[each].hasOwnProperty(eachProp)) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                          else if (arguments[0] === 'node') {
+                              for (let each in allNodes) {
+                                  if (allNodes.hasOwnProperty(each)) {
+                                      for (let eachProp in allNodes[each]) {
+                                          if (allNodes[each].hasOwnProperty(eachProp)
+                                              && (eachProp !== 'hidden' && eachProp !== 'savedLabel'
+                                                  && eachProp !== 'hiddenLabel')) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  };
+
+                  let itemControl = new TomSelect("#select-item",{
+                      create: false,
+                      sortField:{
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addProperties()
+                  });
+
+                  function clearFilter(reset) {
+                      // utility function to clear all the selected filter options
+                      // if reset is set to true, the existing filter will be removed
+                      // else, only the dropdown options are cleared
+                      propControl.clear();
+                      propControl.clearOptions();
+                      valueControl.clear();
+                      valueControl.clearOptions();
+                      filter = {
+                          item : '',
+                          property : '',
+                          value : []
+                      }
+                      if (reset) {
+                          itemControl.clear();
+                          filterHighlight({nodes: []})
+                      }
+                  }
+
+                  function updateFilter(value, key) {
+                      // key could be 'item' or 'property' and value is as selected in dropdown
+                      filter[key] = value
+                  }
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  
+                  // Under this section, parse the array of objects both nodes and edges 
+                  // call the htmlTitle func following if-else check for "title" key before putting to new vis.Dataset()
+                  var myNodes = [{"color": "#31e52d", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Kriging", "label": "Kriging", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Kriging\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 10, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Kriging\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 0\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Kriging"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Interpolation", "label": "Interpolation", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Interpolation\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Interpolation\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Interpolation"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Smoothing_spline", "label": "Smoothing spline", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Smoothing_spline\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Smoothing_spline\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Smoothing_spline"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "label": "Best linear unbiased prediction", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction"}, {"color": "#ff7a00", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Statistics", "label": "Statistics", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Statistics\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 25, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Statistics\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 5\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Statistics"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Geostatistics", "label": "Geostatistics", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Geostatistics\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Geostatistics\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Geostatistics"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Covariance", "label": "Covariance", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Covariance\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Covariance\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Covariance"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Gaussian_process", "label": "Gaussian process", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Gaussian_process\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Gaussian_process\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Gaussian_process"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Smoothness", "label": "Smoothness", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Smoothness\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Smoothness\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Smoothness"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Credible_interval", "label": "Credible interval", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Credible_interval\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Credible_interval\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 200\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Credible_interval"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Numerical_analysis", "label": "Numerical analysis", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Numerical_analysis\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Numerical_analysis\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Numerical_analysis"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Engineering", "label": "Engineering", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Engineering\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Engineering\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Engineering"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Mathematics", "label": "Mathematics", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Mathematics\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Mathematics\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Mathematics"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Discrete_set", "label": "Discrete set", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Discrete_set\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Discrete_set\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Discrete_set"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Estimation", "label": "Estimation", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Estimation\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Estimation\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Estimation"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Science", "label": "Science", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Science\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Science\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Science"}, {"color": "#9fef1c", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Dependent_and_independent_variables", "label": "Dependent and independent variables", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Dependent_and_independent_variables\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 16, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Dependent_and_independent_variables\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 2\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Dependent_and_independent_variables"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Experimentation", "label": "Experimentation", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Experimentation\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Experimentation\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Experimentation"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Data_points", "label": "Data points", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Data_points\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Data_points\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Data_points"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Empirical_Bayes", "label": "Empirical Bayes", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Empirical_Bayes\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Empirical_Bayes\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Empirical_Bayes"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Mixed_model", "label": "Mixed model", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Mixed_model\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Mixed_model\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Mixed_model"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/University_of_Guelph", "label": "University of Guelph", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/University_of_Guelph\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/University_of_Guelph\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/University_of_Guelph"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Best_linear_unbiased_estimator", "label": "Best linear unbiased estimator", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Best_linear_unbiased_estimator\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Best_linear_unbiased_estimator\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Best_linear_unbiased_estimator"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Index_selection", "label": "Index selection", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Index_selection\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Index_selection\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Index_selection"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Charles_Roy_Henderson", "label": "Charles Roy Henderson", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Charles_Roy_Henderson\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Charles_Roy_Henderson\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Charles_Roy_Henderson"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Random_effects_model", "label": "Random effects model", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Random_effects_model\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Random_effects_model\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Random_effects_model"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Line_chart", "label": "Line chart", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Line_chart\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Line_chart\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Line_chart"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Iris_flower_data_set", "label": "Iris flower data set", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Iris_flower_data_set\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Iris_flower_data_set\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Iris_flower_data_set"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Statistic", "label": "Statistic", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Statistic\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Statistic\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Statistic"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Outline_of_statistics", "label": "Outline of statistics", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Outline_of_statistics\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Outline_of_statistics\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Outline_of_statistics"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Descriptive_statistics", "label": "Descriptive statistics", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Descriptive_statistics\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Descriptive_statistics\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Descriptive_statistics"}, {"color": "#9fef1c", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Normal_distribution", "label": "Normal distribution", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Normal_distribution\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 16, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Normal_distribution\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 2\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Normal_distribution"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Inferential_statistics", "label": "Inferential statistics", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Inferential_statistics\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Inferential_statistics\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Inferential_statistics"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Scatter_plot", "label": "Scatter plot", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Scatter_plot\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Scatter_plot\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Scatter_plot"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Probability_density_function", "label": "Probability density function", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Probability_density_function\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Probability_density_function\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Probability_density_function"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Spacetime", "label": "Spacetime", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Spacetime\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Spacetime\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Spacetime"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Statistical_geography", "label": "Statistical geography", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Statistical_geography\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Statistical_geography\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Statistical_geography"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Petroleum_geology", "label": "Petroleum geology", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Petroleum_geology\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Petroleum_geology\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Petroleum_geology"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Dataset", "label": "Dataset", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Dataset\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Dataset\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Dataset"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Probability_distribution", "label": "Probability distribution", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Probability_distribution\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Probability_distribution\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Probability_distribution"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Mining", "label": "Mining", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Mining\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Mining\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Mining"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Hydrogeology", "label": "Hydrogeology", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Hydrogeology\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Hydrogeology\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Hydrogeology"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Ore_grade", "label": "Ore grade", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Ore_grade\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Ore_grade\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Ore_grade"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Ordinary_least_squares", "label": "Ordinary least squares", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Ordinary_least_squares\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Ordinary_least_squares\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Ordinary_least_squares"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Christian_Reinsch", "label": "Christian Reinsch", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Christian_Reinsch\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Christian_Reinsch\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Christian_Reinsch"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Second_derivative", "label": "Second derivative", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Second_derivative\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Second_derivative\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Second_derivative"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Thin_plate_spline", "label": "Thin plate spline", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Thin_plate_spline\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Thin_plate_spline\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Thin_plate_spline"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Interpolating_spline", "label": "Interpolating spline", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Interpolating_spline\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Interpolating_spline\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Interpolating_spline"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Cubic_splines", "label": "Cubic splines", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Cubic_splines\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Cubic_splines\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Cubic_splines"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Sobolev_space", "label": "Sobolev space", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Sobolev_space\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Sobolev_space\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Sobolev_space"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Goodness_of_fit", "label": "Goodness of fit", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Goodness_of_fit\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Goodness_of_fit\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Goodness_of_fit"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Curve_fitting", "label": "Curve fitting", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Curve_fitting\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Curve_fitting\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Curve_fitting"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Likelihood_principle", "label": "Likelihood principle", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Likelihood_principle\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Likelihood_principle\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Likelihood_principle"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Bayesian_inference", "label": "Bayesian inference", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Bayesian_inference\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Bayesian_inference\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Bayesian_inference"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Bayesian_statistics", "label": "Bayesian statistics", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Bayesian_statistics\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Bayesian_statistics\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Bayesian_statistics"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Prior_probability", "label": "Prior probability", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Prior_probability\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Prior_probability\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Prior_probability"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Marginal_likelihood", "label": "Marginal likelihood", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Marginal_likelihood\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Marginal_likelihood\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Marginal_likelihood"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Likelihood_function", "label": "Likelihood function", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Likelihood_function\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Likelihood_function\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Likelihood_function"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Bayesian_probability", "label": "Bayesian probability", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Bayesian_probability\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Bayesian_probability\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Bayesian_probability"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Posterior_probability", "label": "Posterior probability", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Posterior_probability\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Posterior_probability\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Posterior_probability"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Principle_of_indifference", "label": "Principle of indifference", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Principle_of_indifference\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Principle_of_indifference\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Principle_of_indifference"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Complex_coordinate_space", "label": "Complex coordinate space", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Complex_coordinate_space\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Complex_coordinate_space\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Complex_coordinate_space"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Mathematical_analysis", "label": "Mathematical analysis", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Mathematical_analysis\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Mathematical_analysis\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Mathematical_analysis"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Compact_support", "label": "Compact support", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Compact_support\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Compact_support\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Compact_support"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Smooth_number", "label": "Smooth number", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Smooth_number\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Smooth_number\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Smooth_number"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Continuous_function", "label": "Continuous function", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Continuous_function\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Continuous_function\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Continuous_function"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Domain_of_a_function", "label": "Domain of a function", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Domain_of_a_function\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Domain_of_a_function\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Domain_of_a_function"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Order_of_derivation", "label": "Order of derivation", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Order_of_derivation\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Order_of_derivation\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Order_of_derivation"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Bump_function", "label": "Bump function", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Bump_function\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Bump_function\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Bump_function"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Riemann_sphere", "label": "Riemann sphere", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Riemann_sphere\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Riemann_sphere\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Riemann_sphere"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Random_process", "label": "Random process", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Random_process\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Random_process\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Random_process"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Multivariate_normal_distribution", "label": "Multivariate normal distribution", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Multivariate_normal_distribution\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Multivariate_normal_distribution\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Multivariate_normal_distribution"}, {"color": "#9fef1c", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Joint_distribution", "label": "Joint distribution", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Joint_distribution\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 16, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Joint_distribution\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 2\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Joint_distribution"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss", "label": "Carl Friedrich Gauss", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss"}, {"color": "#9fef1c", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Probability_theory", "label": "Probability theory", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Probability_theory\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 16, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Probability_theory\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 2\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Probability_theory"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Statistical_model", "label": "Statistical model", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Statistical_model\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Statistical_model\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Statistical_model"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Stochastic_process", "label": "Stochastic process", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Stochastic_process\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Stochastic_process\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Stochastic_process"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Joint_probability_distribution", "label": "Joint probability distribution", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Joint_probability_distribution\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Joint_probability_distribution\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Joint_probability_distribution"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Statistical_population", "label": "Statistical population", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Statistical_population\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Statistical_population\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Statistical_population"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Random_variable", "label": "Random variable", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Random_variable\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Random_variable\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Random_variable"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Linear_relationship", "label": "Linear relationship", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Linear_relationship\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Linear_relationship\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Linear_relationship"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Statistical_parameter", "label": "Statistical parameter", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Statistical_parameter\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Statistical_parameter\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Statistical_parameter"}, {"color": "#64ea25", "font": {"color": "#ffffff"}, "id": "https://en.wikipedia.org/wiki/Statistical_estimation", "label": "Statistical estimation", "onclick": "window.open(\u0027https://en.wikipedia.org/wiki/Statistical_estimation\u0027, \u0027_blank\u0027);", "shape": "dot", "shapeProperties": {"allowHtml": true}, "size": 13, "title": "\u003cdiv style=\u0027padding: 8px; background: #e6ffe6\u0027\u003e\u003cb\u003eURL:\u003c/b\u003e https://en.wikipedia.org/wiki/Statistical_estimation\u003cbr\u003e\u003cb\u003eStatus:\u003c/b\u003e 0\u003cbr\u003e\u003cb\u003eIn-Degree:\u003c/b\u003e 1\u003cbr\u003e\u003c/div\u003e", "url": "https://en.wikipedia.org/wiki/Statistical_estimation"}];
+                  var myEdges = [{"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Interpolation"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Smoothing_spline"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Geostatistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Covariance"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Gaussian_process"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Smoothness"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Kriging", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Credible_interval"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Numerical_analysis"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Engineering"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Mathematics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Discrete_set"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Estimation"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Science"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Dependent_and_independent_variables"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Experimentation"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Interpolation", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Data_points"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Ordinary_least_squares"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Christian_Reinsch"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Second_derivative"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Thin_plate_spline"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Interpolating_spline"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Cubic_splines"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Sobolev_space"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Goodness_of_fit"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothing_spline", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Curve_fitting"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Empirical_Bayes"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Mixed_model"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/University_of_Guelph"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Best_linear_unbiased_estimator"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Index_selection"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Charles_Roy_Henderson"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Dependent_and_independent_variables"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Random_effects_model"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Line_chart"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Iris_flower_data_set"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistic"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Outline_of_statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Descriptive_statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Normal_distribution"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Inferential_statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Scatter_plot"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Statistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Probability_density_function"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Spacetime"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistical_geography"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Petroleum_geology"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Dataset"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Probability_distribution"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Mining"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Hydrogeology"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Geostatistics", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Ore_grade"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Joint_probability_distribution"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Joint_distribution"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistical_population"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Random_variable"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Linear_relationship"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistical_parameter"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Probability_theory"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Covariance", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistical_estimation"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Random_process"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Multivariate_normal_distribution"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Joint_distribution"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Normal_distribution"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Probability_theory"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Statistical_model"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Gaussian_process", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Stochastic_process"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Complex_coordinate_space"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Mathematical_analysis"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Compact_support"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Smooth_number"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Continuous_function"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Domain_of_a_function"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Order_of_derivation"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Bump_function"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Smoothness", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Riemann_sphere"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Likelihood_principle"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Bayesian_inference"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Bayesian_statistics"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Prior_probability"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Marginal_likelihood"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Likelihood_function"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Bayesian_probability"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Posterior_probability"}, {"arrows": "to", "color": {"color": "#2B7CE9", "highlight": "#FF0000", "hover": "#FF0000"}, "from": "https://en.wikipedia.org/wiki/Credible_interval", "selectionWidth": 3, "smooth": false, "to": "https://en.wikipedia.org/wiki/Principle_of_indifference"}];
+
+                  for (var mynode of myNodes) {
+                      if ("title" in mynode) {
+                    mynode.title =htmlTitle(mynode.title);
+                  } else {
+                      console.log("Object does not have title key");
+                      }
+                  }
+                  console.log(myNodes);
+
+                  for (var myedge of myEdges) {
+                      if ("title" in myedge) {
+                    myedge.title =htmlTitle(myedge.title);
+                  } else {
+                      console.log("Object does not have title key");
+                      }
+                  }                                  
+                  console.log(myEdges);
+
+                  nodes = new vis.DataSet(myNodes);
+                  edges = new vis.DataSet(myEdges);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "repulsion": {
+            "centralGravity": 0.2,
+            "damping": 0.09,
+            "nodeDistance": 500,
+            "springConstant": 0.05,
+            "springLength": 200
+        },
+        "solver": "repulsion",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

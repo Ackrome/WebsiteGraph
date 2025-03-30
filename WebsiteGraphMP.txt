@@ -30,3 +30,11 @@ c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | ma
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | max_links: 30 | crawl time: 4.22903299331665 | workers: 10
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph13.html | max_depth: 1 | max_links: 10 | crawl time: 1.2987685203552246 | workers: 10
 c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html | max_depth: 1 | max_links: 30 | crawl time: 4.401360988616943 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Kriging.html | max_depth: 1 | max_links: 10 | crawl time: 1.711254358291626 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Kriging2d.html | max_depth: 2 | max_links: 10 | crawl time: 12.036363363265991 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Kriging2d.html | max_depth: 2 | max_links: 10 | crawl time: 16.50191378593445 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Kriging2d.html | max_depth: 2 | max_links: 10 | crawl time: 16.00253915786743 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph14.html | max_depth: 2 | max_links: 10 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph15.html | max_depth: 2 | max_links: 10 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Kriging3d.html | max_depth: 3 | max_links: 10 | crawl time: 67.89099144935608 | workers: 10
+c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph16.html | max_depth: 3 | max_links: 10 | workers: 10

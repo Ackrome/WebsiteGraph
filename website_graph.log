@@ -21755,3 +21755,260 @@ TypeError: a bytes-like object is required, not 'NoneType'
 2025-03-29 02:08:59,729 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Space_telescope
 2025-03-29 02:09:00,721 - INFO - Crawl complete
 2025-03-29 02:09:00,723 - INFO - Starting visualization
+2025-03-29 02:09:11,127 - INFO - Сохранение графа в HTML-файл
+2025-03-29 02:09:11,269 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\graph13.html and opened in browser
+2025-03-29 02:09:11,806 - INFO - Starting program
+2025-03-29 02:09:11,813 - INFO - Starting crawl
+2025-03-29 02:09:11,817 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Pornhub
+2025-03-29 02:09:12,196 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Pornography
+2025-03-29 02:09:12,196 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Media_conglomerate
+2025-03-29 02:09:12,197 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Talk:Pornhub
+2025-03-29 02:09:12,198 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Special:UrlShortener&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPornhub
+2025-03-29 02:09:12,200 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&returnto=Pornhub
+2025-03-29 02:09:12,202 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Privately_held_company
+2025-03-29 02:09:12,203 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/List_of_most-visited_websites
+2025-03-29 02:09:12,206 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Pornhub&oldid=1281899413
+2025-03-29 02:09:12,209 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&page=Pornhub&id=1281899413&wpFormIdentifier=titleform
+2025-03-29 02:09:12,213 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Sex_industry
+2025-03-29 02:09:12,242 - ERROR - Unable to deserialize response: a bytes-like object is required, not 'NoneType'
+2025-03-29 02:09:12,439 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Pornhub&action=history
+2025-03-29 02:09:12,476 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Pornhub&printable=yes
+2025-03-29 02:09:12,530 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Online_advertising
+2025-03-29 02:09:12,531 - ERROR - Unexpected error for https://en.wikipedia.org/w/index.php?title=Pornhub&action=history: bad parameter or other API misuse
+2025-03-29 02:09:12,532 - ERROR - Unable to deserialize response: a bytes-like object is required, not 'NoneType'
+2025-03-29 02:09:12,534 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Special:QrCode&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPornhub
+2025-03-29 02:09:12,657 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Quebec
+2025-03-29 02:09:13,035 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Pornhub&action=info
+2025-03-29 02:09:13,302 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Pornhub
+2025-03-29 02:09:13,328 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Holding_company
+2025-03-29 02:09:13,352 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Ethical_Capital_Partners
+2025-03-29 02:09:13,402 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Video_sharing
+2025-03-29 02:09:13,806 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Aylo
+2025-03-29 02:09:13,885 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Pornhub&action=edit
+2025-03-29 02:09:13,941 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Montreal
+2025-03-29 02:09:14,029 - ERROR - Unexpected error for https://en.wikipedia.org/w/index.php?title=Pornhub&action=edit: bad parameter or other API misuse
+2025-03-29 02:09:14,080 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Organizational_founder
+2025-03-29 02:09:14,102 - INFO - Fetching (depth 1): https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Pornhub&action=show-download-screen
+2025-03-29 02:09:14,106 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Amateur_pornography
+2025-03-29 02:09:14,166 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/File:Pornhub-logo.svg
+2025-03-29 02:09:14,194 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Internet_pornography
+2025-03-29 02:09:14,472 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Service_(economics)
+2025-03-29 02:09:16,215 - INFO - Crawl complete
+2025-03-29 02:09:16,219 - INFO - Starting visualization
+2025-03-29 02:09:26,460 - INFO - Сохранение графа в HTML-файл
+2025-03-29 02:09:26,552 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Pornhub.html and opened in browser
+2025-03-29 16:46:19,320 - INFO - Starting program
+2025-03-29 16:46:19,350 - INFO - Starting crawl
+2025-03-29 16:46:19,362 - INFO - Fetching (depth 0): https://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B3
+2025-03-29 16:46:19,760 - INFO - Crawl complete
+2025-03-29 16:46:19,762 - INFO - Starting visualization
+2025-03-29 16:46:30,270 - INFO - Сохранение графа в HTML-файл
+2025-03-29 16:46:30,411 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\крининг.html and opened in browser
+2025-03-29 16:47:00,774 - INFO - Starting program
+2025-03-29 16:47:00,786 - INFO - Starting crawl
+2025-03-29 16:47:00,790 - INFO - Fetching (depth 0): https://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B3
+2025-03-29 16:47:00,814 - INFO - Crawl complete
+2025-03-29 16:47:00,815 - INFO - Starting visualization
+2025-03-29 16:47:11,049 - INFO - Сохранение графа в HTML-файл
+2025-03-29 16:47:11,124 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\крининг.html and opened in browser
+2025-03-29 16:48:16,963 - INFO - Starting program
+2025-03-29 16:48:16,972 - INFO - Starting crawl
+2025-03-29 16:48:16,984 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Kriging
+2025-03-29 16:48:17,443 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interpolation
+2025-03-29 16:48:17,443 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Smoothing_spline
+2025-03-29 16:48:17,444 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction
+2025-03-29 16:48:17,445 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-29 16:48:17,449 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Geostatistics
+2025-03-29 16:48:17,449 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Covariance
+2025-03-29 16:48:17,450 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Gaussian_process
+2025-03-29 16:48:17,451 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Smoothness
+2025-03-29 16:48:17,453 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Credible_interval
+2025-03-29 16:48:18,686 - INFO - Crawl complete
+2025-03-29 16:48:18,687 - INFO - Starting visualization
+2025-03-29 16:48:28,898 - INFO - Сохранение графа в HTML-файл
+2025-03-29 16:48:29,002 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Kriging.html and opened in browser
+2025-03-30 15:12:31,168 - INFO - Starting program
+2025-03-30 15:12:31,199 - INFO - Starting crawl
+2025-03-30 15:12:31,208 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Kriging
+2025-03-30 15:12:31,822 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Geostatistics
+2025-03-30 15:12:31,822 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-30 15:12:31,823 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction
+2025-03-30 15:12:31,825 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Credible_interval
+2025-03-30 15:12:31,827 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Smoothness
+2025-03-30 15:12:31,829 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Gaussian_process
+2025-03-30 15:12:31,834 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Smoothing_spline
+2025-03-30 15:12:31,836 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interpolation
+2025-03-30 15:12:31,839 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Covariance
+2025-03-30 15:12:33,399 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_geography
+2025-03-30 15:12:33,399 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Probability_distribution
+2025-03-30 15:12:33,399 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Ore_grade
+2025-03-30 15:12:33,399 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Petroleum_geology
+2025-03-30 15:12:33,401 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mining
+2025-03-30 15:12:33,401 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Hydrogeology
+2025-03-30 15:12:33,401 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Spacetime
+2025-03-30 15:12:33,402 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Dataset
+2025-03-30 15:12:33,403 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Iris_flower_data_set
+2025-03-30 15:12:33,404 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistic
+2025-03-30 15:12:33,416 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Ore_grade: bad parameter or other API misuse
+2025-03-30 15:12:33,428 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Descriptive_statistics
+2025-03-30 15:12:33,676 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Outline_of_statistics
+2025-03-30 15:12:33,727 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Scatter_plot
+2025-03-30 15:12:34,080 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Line_chart
+2025-03-30 15:12:34,113 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Normal_distribution
+2025-03-30 15:12:34,144 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Probability_density_function
+2025-03-30 15:12:34,201 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Inferential_statistics
+2025-03-30 15:12:34,349 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Dependent_and_independent_variables
+2025-03-30 15:12:34,379 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Random_effects_model
+2025-03-30 15:12:34,556 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/University_of_Guelph
+2025-03-30 15:12:34,662 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mixed_model
+2025-03-30 15:12:34,685 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Best_linear_unbiased_estimator
+2025-03-30 15:12:34,995 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Empirical_Bayes
+2025-03-30 15:12:35,035 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Charles_Roy_Henderson
+2025-03-30 15:12:35,184 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Index_selection
+2025-03-30 15:12:35,535 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Posterior_probability
+2025-03-30 15:12:35,737 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Bayesian_probability
+2025-03-30 15:12:36,069 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Prior_probability
+2025-03-30 15:12:36,127 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Marginal_likelihood
+2025-03-30 15:12:36,304 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Bayesian_statistics
+2025-03-30 15:12:36,334 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Bayesian_inference
+2025-03-30 15:12:36,545 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Principle_of_indifference
+2025-03-30 15:12:36,674 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Likelihood_function
+2025-03-30 15:12:36,761 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Likelihood_principle
+2025-03-30 15:12:36,871 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Marginal_likelihood: bad parameter or other API misuse
+2025-03-30 15:12:36,907 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mathematical_analysis
+2025-03-30 15:12:36,925 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Riemann_sphere
+2025-03-30 15:12:36,947 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Order_of_derivation
+2025-03-30 15:12:36,948 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Bump_function
+2025-03-30 15:12:37,172 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Continuous_function
+2025-03-30 15:12:37,217 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Compact_support
+2025-03-30 15:12:37,367 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Smooth_number
+2025-03-30 15:12:37,515 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Complex_coordinate_space
+2025-03-30 15:12:37,589 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Domain_of_a_function
+2025-03-30 15:12:37,890 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Multivariate_normal_distribution
+2025-03-30 15:12:38,221 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Stochastic_process
+2025-03-30 15:12:38,337 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Joint_distribution
+2025-03-30 15:12:38,507 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Probability_theory
+2025-03-30 15:12:38,759 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss
+2025-03-30 15:12:38,780 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Random_process
+2025-03-30 15:12:39,136 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_model
+2025-03-30 15:12:39,183 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Interpolating_spline
+2025-03-30 15:12:39,239 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Ordinary_least_squares
+2025-03-30 15:12:39,269 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Cubic_splines
+2025-03-30 15:12:39,270 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Random_process: bad parameter or other API misuse
+2025-03-30 15:12:39,273 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Curve_fitting
+2025-03-30 15:12:39,427 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Christian_Reinsch
+2025-03-30 15:12:40,413 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thin_plate_spline
+2025-03-30 15:12:40,441 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Second_derivative
+2025-03-30 15:12:40,442 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Goodness_of_fit
+2025-03-30 15:12:40,445 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Sobolev_space
+2025-03-30 15:12:40,484 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Science
+2025-03-30 15:12:40,514 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Numerical_analysis
+2025-03-30 15:12:40,949 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Engineering
+2025-03-30 15:12:40,969 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Data_points
+2025-03-30 15:12:41,000 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Science: Ran out of input
+2025-03-30 15:12:41,234 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Numerical_analysis: bad parameter or other API misuse
+2025-03-30 15:12:41,280 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Estimation
+2025-03-30 15:12:41,289 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Experimentation
+2025-03-30 15:12:41,289 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mathematics
+2025-03-30 15:12:41,361 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Discrete_set
+2025-03-30 15:12:41,474 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Linear_relationship
+2025-03-30 15:12:41,490 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_parameter
+2025-03-30 15:12:41,640 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Joint_probability_distribution
+2025-03-30 15:12:41,857 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_population
+2025-03-30 15:12:41,882 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_estimation
+2025-03-30 15:12:42,143 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Random_variable
+2025-03-30 15:12:42,224 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/Joint_probability_distribution: bad parameter or other API misuse
+2025-03-30 15:12:43,236 - INFO - Crawl complete
+2025-03-30 15:12:43,237 - INFO - Starting visualization
+2025-03-30 15:12:53,757 - INFO - Сохранение графа в HTML-файл
+2025-03-30 15:12:53,928 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Kriging2d.html and opened in browser
+2025-03-30 15:16:26,369 - INFO - Starting program
+2025-03-30 15:16:26,380 - INFO - Starting crawl
+2025-03-30 15:16:26,386 - INFO - Fetching (depth 0): https://en.wikipedia.org/wiki/Kriging
+2025-03-30 15:16:26,542 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Geostatistics
+2025-03-30 15:16:26,542 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Statistics
+2025-03-30 15:16:26,543 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Best_linear_unbiased_prediction
+2025-03-30 15:16:26,544 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Credible_interval
+2025-03-30 15:16:26,546 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Smoothness
+2025-03-30 15:16:26,549 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Gaussian_process
+2025-03-30 15:16:26,551 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Smoothing_spline
+2025-03-30 15:16:26,555 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Interpolation
+2025-03-30 15:16:26,557 - INFO - Fetching (depth 1): https://en.wikipedia.org/wiki/Covariance
+2025-03-30 15:16:28,674 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_geography
+2025-03-30 15:16:28,675 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Probability_distribution
+2025-03-30 15:16:28,675 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Ore_grade
+2025-03-30 15:16:28,676 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Hydrogeology
+2025-03-30 15:16:28,675 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mining
+2025-03-30 15:16:28,677 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Iris_flower_data_set
+2025-03-30 15:16:28,676 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Spacetime
+2025-03-30 15:16:28,676 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Dataset
+2025-03-30 15:16:28,675 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Petroleum_geology
+2025-03-30 15:16:28,677 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistic
+2025-03-30 15:16:29,150 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Descriptive_statistics
+2025-03-30 15:16:29,308 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Outline_of_statistics
+2025-03-30 15:16:29,406 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Scatter_plot
+2025-03-30 15:16:29,455 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Line_chart
+2025-03-30 15:16:29,626 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Normal_distribution
+2025-03-30 15:16:29,786 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Probability_density_function
+2025-03-30 15:16:30,785 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Inferential_statistics
+2025-03-30 15:16:30,845 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Dependent_and_independent_variables
+2025-03-30 15:16:31,101 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Random_effects_model
+2025-03-30 15:16:31,165 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/University_of_Guelph
+2025-03-30 15:16:31,264 - ERROR - Unexpected error for https://en.wikipedia.org/wiki/University_of_Guelph: bad parameter or other API misuse
+2025-03-30 15:16:31,340 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mixed_model
+2025-03-30 15:16:31,343 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Best_linear_unbiased_estimator
+2025-03-30 15:16:31,589 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Empirical_Bayes
+2025-03-30 15:16:31,599 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Charles_Roy_Henderson
+2025-03-30 15:16:31,649 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Index_selection
+2025-03-30 15:16:31,677 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Posterior_probability
+2025-03-30 15:16:32,124 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Bayesian_probability
+2025-03-30 15:16:32,556 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Prior_probability
+2025-03-30 15:16:32,597 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Marginal_likelihood
+2025-03-30 15:16:32,735 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Bayesian_statistics
+2025-03-30 15:16:33,050 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Bayesian_inference
+2025-03-30 15:16:33,106 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Principle_of_indifference
+2025-03-30 15:16:33,157 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Likelihood_function
+2025-03-30 15:16:33,469 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Likelihood_principle
+2025-03-30 15:16:33,486 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mathematical_analysis
+2025-03-30 15:16:33,511 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Riemann_sphere
+2025-03-30 15:16:33,799 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Order_of_derivation
+2025-03-30 15:16:33,960 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Bump_function
+2025-03-30 15:16:34,005 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Continuous_function
+2025-03-30 15:16:34,069 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Compact_support
+2025-03-30 15:16:34,453 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Smooth_number
+2025-03-30 15:16:34,460 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Complex_coordinate_space
+2025-03-30 15:16:34,746 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Domain_of_a_function
+2025-03-30 15:16:34,770 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Multivariate_normal_distribution
+2025-03-30 15:16:34,884 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Stochastic_process
+2025-03-30 15:16:34,967 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Joint_distribution
+2025-03-30 15:16:35,249 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Probability_theory
+2025-03-30 15:16:35,395 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss
+2025-03-30 15:16:35,837 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Random_process
+2025-03-30 15:16:35,873 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_model
+2025-03-30 15:16:35,930 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Interpolating_spline
+2025-03-30 15:16:36,071 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Ordinary_least_squares
+2025-03-30 15:16:36,097 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Cubic_splines
+2025-03-30 15:16:36,219 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Curve_fitting
+2025-03-30 15:16:36,314 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Christian_Reinsch
+2025-03-30 15:16:36,637 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Thin_plate_spline
+2025-03-30 15:16:36,734 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Second_derivative
+2025-03-30 15:16:36,790 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Goodness_of_fit
+2025-03-30 15:16:36,994 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Sobolev_space
+2025-03-30 15:16:37,192 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Science
+2025-03-30 15:16:37,351 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Numerical_analysis
+2025-03-30 15:16:37,469 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Engineering
+2025-03-30 15:16:37,638 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Data_points
+2025-03-30 15:16:37,975 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Estimation
+2025-03-30 15:16:37,992 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Experimentation
+2025-03-30 15:16:38,097 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Mathematics
+2025-03-30 15:16:38,724 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Discrete_set
+2025-03-30 15:16:38,878 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Linear_relationship
+2025-03-30 15:16:38,978 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_parameter
+2025-03-30 15:16:39,024 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Joint_probability_distribution
+2025-03-30 15:16:39,610 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_population
+2025-03-30 15:16:39,670 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Statistical_estimation
+2025-03-30 15:16:39,769 - INFO - Fetching (depth 2): https://en.wikipedia.org/wiki/Random_variable
+2025-03-30 15:16:42,883 - INFO - Crawl complete
+2025-03-30 15:16:42,884 - INFO - Starting visualization
+2025-03-30 15:16:53,157 - INFO - Сохранение графа в HTML-файл
+2025-03-30 15:16:53,238 - INFO - Graph saved as c:\Users\ivant\Desktop\proj\WebsiteGraph\graphs\Kriging2d.html and opened in browser

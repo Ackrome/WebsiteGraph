@@ -16,6 +16,32 @@ from statsmodels.api import OLS
 from sklearn.preprocessing import PolynomialFeatures
 import ipynbname
 import os
+import pickle
+
+def read_github_txt_file(url, save_locally=False, file_path="file.txt"):
+    """
+    Скачивает TXT-файл с GitHub и возвращает его содержимое.
+    
+    Args:
+        url (str): Ссылка на RAW-файл (через raw.githubusercontent.com) [[7]][[8]]
+        save_locally (bool): Сохранить файл локально (по умолчанию False)
+        file_path (str): Путь для сохранения (по умолчанию "file.txt")
+    
+    Returns:
+        str: Содержимое файла
+    """
+    # Скачивание файла
+    response = requests.get(url)
+    response.raise_for_status()  # Проверка ошибок 
+    
+    # Сохранение локально (опционально)
+    if save_locally:
+        with open(file_path, "wb") as file:
+            file.write(response.content)
+        print(f"Файл сохранен: {file_path}")  # Информация о сохранении
+    
+    # Возврат содержимого в виде текста
+    return response.content.decode("utf-8")  # Декодирование бинарных данных 
 
 def get_this_ipynb():
     """Gets this ipynb absolute path
@@ -71,7 +97,7 @@ logger = logging.getLogger(__name__)
 
 class WebsiteGraphMP: # MP for MultiProcessing
     def __init__(self,
-                 start_url: str,
+                 start_url: str = '',
                  max_depth: int = 2,
                  max_links: int = 5,
                  path_regex: str = None,
@@ -97,43 +123,11 @@ class WebsiteGraphMP: # MP for MultiProcessing
             self.results = self._prev_results()
         except:
             pass
-
+        
+    # Main methods
     def detect_communities(self):
         from networkx.algorithms import community
         return list(community.greedy_modularity_communities(self.graph))
-     
-    def _normalize_url(self, url: str) -> str:
-        parsed = urlparse(url)
-        normalized = urlunparse((
-            parsed.scheme,
-            parsed.netloc,
-            parsed.path.rstrip('/'),
-            "",
-            parsed.query,
-            ""
-        ))
-        return normalized
-
-    def _is_valid_url(self, url: str) -> bool:
-        parsed = urlparse(url)
-        path = parsed.path
-        # Define disallowed prefixes for Wikipedia pages
-        disallowed_prefixes = ["/wiki/Special", "/wiki/Help", "/wiki/Portal", "/wiki/Wikipedia"]
-        # Check if the URL path starts with any of these prefixes
-        if any(path.startswith(prefix) for prefix in disallowed_prefixes):
-            return False
-        # Also avoid main page and ensure it's within the desired domain
-        is_main_page = path.lower().endswith("main_page")
-        valid = (self.domain in parsed.netloc and not is_main_page and 
-                (not self.path_regex or self.path_regex.search(path)))
-        return valid
-
-
-    def _get_article_title(self, url: str) -> str:
-        match = re.search(r'/wiki/([^/]+)', url)
-        if match:
-            return match.group(1).replace('_', ' ')
-        return url.split('//')[-1].split('/')[0]
 
     def fetch_page(self, url: str, depth: int, session: CachedSession):
         """Fetch a page, extract valid links, and return node data with found links."""
@@ -228,73 +222,7 @@ class WebsiteGraphMP: # MP for MultiProcessing
         # Нужно закрыть сессию)
         session.close()
         logger.info("Crawl complete")
-        
-    
-    def _calculate_node_size(self, node: str) -> int:
-        in_degree = self.graph.in_degree(node)
-        size = 10 + 3 * in_degree if self.node_size == "degree" else 10
-        return size
-
-    def _get_node_color(self, node: str) -> str:
-        
-        if self.max_degree == self.min_degree:
-            return "#D4EDD4"
-        t = (self.graph.in_degree(node) - self.min_degree) / (self.max_degree - self.min_degree)
-        h = 0.33 - 0.25 * t
-        s = 0.8 + 0.2 * t
-        v = 0.9 + 0.1 * t
-        r, g, b = hsv_to_rgb(h, s, v)
-        return '#{:02x}{:02x}{:02x}'.format(int(r * 255), int(g * 255), int(b * 255))
-    
-    def _prev_results(self):
-        with open('WebsiteGraphMP.txt') as f:
-            lines = f.readlines()
-
-        names = ['name','max_depth', 'max_links','crawl_time','workers']
-
-
-        results = []
-        for i in list(map(lambda x: x.split("|"), lines)):
-            if len(i) == len(names):
-                results.append([_.split(':')[-1] for _ in i])
-        results = pd.DataFrame(results, columns=names)
-        results['name'] = results['name'].transform(lambda x: x.split('\\')[-1])
-        results['max_depth'] = pd.to_numeric(results['max_depth'])
-        results['max_links'] = pd.to_numeric(results['max_links'])
-        results['crawl_time'] = pd.to_numeric(results['crawl_time'])
-        results['workers'] = pd.to_numeric(results['workers'].transform(lambda x: x[:-1]))
-        results.set_index('name', inplace=True)
-        results.sort_values('crawl_time', inplace=True)
-
-        return results
-
-    def _predict_time(self,max_depth,max_links,workers):
-        gran_mean_times = self.results.groupby(['max_depth','max_links','workers'])[['crawl_time']].agg(['mean'])
-        noworkers_mean_times = self.results.groupby(['max_depth','max_links'])[['crawl_time']].agg(['mean'])
-        
-        if (max_depth,max_links,workers) in gran_mean_times.index:
-            return gran_mean_times.loc[max_depth,max_links,workers].iloc[0]
-        
-        elif (max_depth,max_links) in noworkers_mean_times.index:
-            return noworkers_mean_times.loc[max_depth,max_links].iloc[0]
-        
-        else:
-            X = self.results[['max_depth','max_links','workers']].values
-            y = self.results['crawl_time'].values
-
-            X = PolynomialFeatures(degree=2).fit_transform(X)
-            model1 = OLS(y,X)
-            model1 = model1.fit()
-
-
-            mean_times = self.results[self.results.max_links==10].groupby('max_depth')[['crawl_time']].agg(['mean'])
-            x = PolynomialFeatures(degree=2).fit_transform(mean_times.index.values.reshape(-1,1))
-
-            model2 = OLS(mean_times.values,x)
-            model2 = model2.fit()
-
-            return (model1.predict(PolynomialFeatures(degree=2).fit_transform([[max_depth,max_links,workers]]))[0] + model2.predict(PolynomialFeatures(degree=2).fit_transform([[max_depth]]))[0])/2
-        
+         
     def visualize(self, rebuild: bool = False, force_reload: bool = False, force_file_name : str = ''):
         if rebuild or force_reload or not self.graph.nodes:
             self.crawl()
@@ -381,8 +309,10 @@ class WebsiteGraphMP: # MP for MultiProcessing
                 graph_num = 0
             
             file = f"{directory}\\graph{graph_num}.html"
+            self.save_graph(filename=f'{directory}\\graph{graph_num}.pkl')
         else:
             file = f"{directory}\\{force_file_name}.html"
+            self.save_graph(filename=f"{directory}\\{force_file_name}.pkl")
         logger.info("Сохранение графа в HTML-файл")
         
         
@@ -399,7 +329,150 @@ class WebsiteGraphMP: # MP for MultiProcessing
         
         print(text)
     
-        # Magic Methods
+    def save_graph(self, filename="website_graph.pkl"):
+            """Save the current graph state and parameters to a pickle file."""
+            data = {
+                "graph": self.graph,
+                "start_url": self.start_url,
+                "max_depth": self.max_depth,
+                "max_links": self.max_links,
+                "domain": self.domain,
+                "path_regex": self.path_regex.pattern if self.path_regex else None,
+                "workers": self.workers,
+                "expire_after": self.expire_after,
+                "node_size": self.node_size,
+                "layout": self.layout,
+            }
+            with open(filename, "wb") as f:
+                pickle.dump(data, f)
+            print(f"Graph saved to {filename}")
+
+    def load_graph(self, filename="website_graph.pkl"):
+        """Load the graph state and parameters from a pickle file and update self."""
+        try:
+            ipynb_dir =  '\\'.join(get_this_ipynb().split('\\')[:-1])
+            directory = ensure_directory_exists(ipynb_dir + '\\graphs')
+            with open(f'{directory}\\{filename}', "rb") as f:
+                data = pickle.load(f)
+        except:
+            with open(f'{filename}', "rb") as f:
+                data = pickle.load(f)
+                
+        self.graph = data.get("graph", self.graph)
+        self.start_url = data.get("start_url", self.start_url)
+        self.max_depth = data.get("max_depth", self.max_depth)
+        self.max_links = data.get("max_links", self.max_links)
+        self.domain = data.get("domain", self.domain)
+        regex_pattern = data.get("path_regex")
+        self.path_regex = re.compile(regex_pattern) if regex_pattern else None
+        self.workers = data.get("workers", self.workers)
+        self.expire_after = data.get("expire_after", self.expire_after)
+        self.node_size = data.get("node_size", self.node_size)
+        self.layout = data.get("layout", self.layout)
+        print(f"Graph loaded from {filename}")
+
+    # Inner methods
+    def _normalize_url(self, url: str) -> str:
+        parsed = urlparse(url)
+        normalized = urlunparse((
+            parsed.scheme,
+            parsed.netloc,
+            parsed.path.rstrip('/'),
+            "",
+            parsed.query,
+            ""
+        ))
+        return normalized
+
+    def _is_valid_url(self, url: str) -> bool:
+        parsed = urlparse(url)
+        path = parsed.path
+        # Define disallowed prefixes for Wikipedia pages
+        disallowed_prefixes = ["/wiki/Special", "/wiki/Help", "/wiki/Portal", "/wiki/Wikipedia"]
+        # Check if the URL path starts with any of these prefixes
+        if any(path.startswith(prefix) for prefix in disallowed_prefixes):
+            return False
+        # Also avoid main page and ensure it's within the desired domain
+        is_main_page = path.lower().endswith("main_page")
+        valid = (self.domain in parsed.netloc and not is_main_page and 
+                (not self.path_regex or self.path_regex.search(path)))
+        return valid
+
+    def _get_article_title(self, url: str) -> str:
+        match = re.search(r'/wiki/([^/]+)', url)
+        if match:
+            return match.group(1).replace('_', ' ')
+        return url.split('//')[-1].split('/')[0]
+
+    def _calculate_node_size(self, node: str) -> int:
+        in_degree = self.graph.in_degree(node)
+        size = 10 + 3 * in_degree if self.node_size == "degree" else 10
+        return size
+
+    def _get_node_color(self, node: str) -> str:
+        
+        if self.max_degree == self.min_degree:
+            return "#D4EDD4"
+        t = (self.graph.in_degree(node) - self.min_degree) / (self.max_degree - self.min_degree)
+        h = 0.33 - 0.25 * t
+        s = 0.8 + 0.2 * t
+        v = 0.9 + 0.1 * t
+        r, g, b = hsv_to_rgb(h, s, v)
+        return '#{:02x}{:02x}{:02x}'.format(int(r * 255), int(g * 255), int(b * 255))
+    
+    def _prev_results(self):
+        try:
+            with open('WebsiteGraphMP.txt') as f:
+                lines = f.readlines()
+        except:
+            lines = read_github_txt_file(r'https://raw.githubusercontent.com/Ackrome/WebsiteGraph/refs/heads/main/WebsiteGraphMP.txt',True,'WebsiteGraphMP.txt').split('\n')
+
+        names = ['name','max_depth', 'max_links','crawl_time','workers']
+
+
+        results = []
+        for i in list(map(lambda x: x.split("|"), lines)):
+            if len(i) == len(names):
+                results.append([_.split(':')[-1] for _ in i])
+        results = pd.DataFrame(results, columns=names)
+        results['name'] = results['name'].transform(lambda x: x.split('\\')[-1])
+        results['max_depth'] = pd.to_numeric(results['max_depth'])
+        results['max_links'] = pd.to_numeric(results['max_links'])
+        results['crawl_time'] = pd.to_numeric(results['crawl_time'])
+        results['workers'] = pd.to_numeric(results['workers'].transform(lambda x: x[:-1]))
+        results.set_index('name', inplace=True)
+        results.sort_values('crawl_time', inplace=True)
+
+        return results
+
+    def _predict_time(self,max_depth,max_links,workers):
+        gran_mean_times = self.results.groupby(['max_depth','max_links','workers'])[['crawl_time']].agg(['mean'])
+        noworkers_mean_times = self.results.groupby(['max_depth','max_links'])[['crawl_time']].agg(['mean'])
+        
+        if (max_depth,max_links,workers) in gran_mean_times.index:
+            return gran_mean_times.loc[max_depth,max_links,workers].iloc[0]
+        
+        elif (max_depth,max_links) in noworkers_mean_times.index:
+            return noworkers_mean_times.loc[max_depth,max_links].iloc[0]
+        
+        else:
+            X = self.results[['max_depth','max_links','workers']].values
+            y = self.results['crawl_time'].values
+
+            X = PolynomialFeatures(degree=2).fit_transform(X)
+            model1 = OLS(y,X)
+            model1 = model1.fit()
+
+
+            mean_times = self.results[self.results.max_links==10].groupby('max_depth')[['crawl_time']].agg(['mean'])
+            x = PolynomialFeatures(degree=2).fit_transform(mean_times.index.values.reshape(-1,1))
+
+            model2 = OLS(mean_times.values,x)
+            model2 = model2.fit()
+
+            return (model1.predict(PolynomialFeatures(degree=2).fit_transform([[max_depth,max_links,workers]]))[0] + model2.predict(PolynomialFeatures(degree=2).fit_transform([[max_depth]]))[0])/2
+        
+    # Magic Methods
     def __str__(self):
         return (f"WebsiteGraphMP(start_url='{self.start_url}', nodes={self.graph.number_of_nodes()}, "
                 f"edges={self.graph.number_of_edges()})")
